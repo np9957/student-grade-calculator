@@ -1,0 +1,93 @@
+/*
+ ============================================================================
+                      Getting Started With Programming in C
+ Name: 			Nikhil Rajput
+ Project Name:  Student report card generator
+ Date: 			08/10/2022
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <unistd.h>
+
+int main() {
+
+	//Declare variables
+	char stuName[50], section;
+	int class, math, english, hindi, science, socialScience, totMark;
+
+	puts("***************WELCOME TO STUDENT REPORT CARD GENERATOR***************");
+
+	//Getting student details
+    printf("Enter name of the student: ");
+	scanf("%[^\n]%*c", stuName);
+	printf("Enter standard of the student: ");
+	scanf("%d", &class);
+	while ((getchar()) != '\n');
+	printf("Enter section of the student: ");
+	scanf("%c", &section);
+
+	//Getting marks of student
+	printf("\nEnter marks in Mathematics: ");
+	scanf("%d", &math);
+	printf("Enter marks in English: ");
+	scanf("%d", &english);
+	printf("Enter marks in Hindi: ");
+	scanf("%d", &hindi);
+	printf("Enter marks in Science: ");
+	scanf("%d", &science);
+	printf("Enter marks in Social Science: ");
+	scanf("%d", &socialScience);
+
+    puts("-----------------------------------------------------------\n\t"
+			"       Jawahar Navodaya Vidyalaya\n\t\t   Annual Report Card\n\n");
+	//Printing student details
+	printf("Name: %s\n", stuName);
+	printf("Standard: %d\n", class);
+	printf("Section: %c\n\n", section);
+
+	//Printing student's marks
+	puts("Marks Secured out of 100");
+
+	printf("Mathematics: %d\n", math);
+	printf("English: %d\n", english);
+	printf("Hindi: %d\n", hindi);
+	printf("Science: %d\n", science);
+	printf("Social Science: %d\n\n", socialScience);
+
+	//Calculating total marks and printing it after 3 seconds
+	sleep(2);
+
+	totMark = math + english + hindi + science + socialScience;
+
+	printf("Total marks secured: %d\n", totMark);
+
+    //Condition to check total marks are not less then 0 and more then 500
+    if(totMark>500 || totMark<0) {
+        puts("      PROGRAM TERMINATED\nReport card cannot be generated\n");
+    }
+    else {
+    	//Printing grade of student
+    	if(totMark >= 450 && totMark <= 500) {
+    		puts("Grade: A");
+    	}
+    	else if(totMark >= 400 && totMark <= 449) {
+    		puts("Grade: B");
+    	}
+    	else if(totMark >= 350 && totMark <= 399) {
+    		puts("Grade: C");
+    	}
+    	else if(totMark >= 300 && totMark <= 349) {
+    		puts("Grade: D");
+    	}
+    	else if(totMark >= 200 && totMark <= 299) {
+    		puts("Grade: E");
+    	}
+    	else {
+    		puts("Grade: F");
+    	}
+    }
+	puts("\n------------------------------------------------------------");
+
+	return 0;
+}
